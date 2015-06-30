@@ -1,0 +1,9 @@
+<%= @section.name %>
+
+<ul>
+  <% @section.lessons.each do |lesson| %>
+    <li><%= lesson.name %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add Lesson', new_section_lesson_path(@section) %>

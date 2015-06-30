@@ -1,0 +1,7 @@
+<% @sections.each do |s| %>
+
+<%= link_to s.name, section_path(s) %>
+
+<% end %>
+
+<%= link_to "New Section", new_section_path %>

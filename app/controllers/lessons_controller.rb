@@ -4,14 +4,16 @@ class LessonsController < ApplicationController
   end
 
   def new
+    @section = Section.find(params[:section_id])
     @lesson = Lesson.new
   end
 
   def create
-    @lesson = Lesson.new(lesson_params)
+    @section = Section.find(params[:section_id])
+    @lesson = @section.lessons.new(lesson_params)
     if @lesson.save
       flash[:notice] = "Lesson Added"
-      redirect_to lessons_path
+      redirect_to section_path(@section.id)
     else
       render :new
     end
