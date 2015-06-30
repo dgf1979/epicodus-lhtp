@@ -1,17 +1,20 @@
 class SectionsController < ApplicationController
   def index
+    @chapter = Chapter.find(params[:chapter_id])
     @sections = Section.all
   end
 
   def new
+    @chapter = Chapter.find(params[:chapter_id])
     @section = Section.new
   end
 
   def create
-    @section = Section.new(section_params)
+    @chapter = Chapter.find(params[:chapter_id])
+    @section = @chapter.sections.new(section_params)
     if @section.save
       flash[:notice] = "Section Added"
-      redirect_to sections_path
+      redirect_to chapters_path
     else
       render :new
     end

@@ -4,7 +4,8 @@ class LessonsController < ApplicationController
   end
 
   def new
-    @section = Section.find(params[:section_id])
+    @chapter = Chapter.find(params[:chapter_id])
+    @section = @chapter.sections.find(params[:section_id])
     @lesson = Lesson.new
   end
 
@@ -13,14 +14,15 @@ class LessonsController < ApplicationController
     @lesson = @section.lessons.new(lesson_params)
     if @lesson.save
       flash[:notice] = "Lesson Added"
-      redirect_to section_path(@section.id)
+      redirect_to chapters_path
     else
       render :new
     end
   end
 
   def show
-    @section = Section.find(params[:section_id])
+    @chapter = Chapter.find(params[:chapter_id])
+    @section = @chapter.sections.find(params[:section_id])
     @lesson = Lesson.find(params[:id])
   end
 

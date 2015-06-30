@@ -1,0 +1,26 @@
+<div class="row">
+    <% @chapters.each do |c| %>
+
+    <div class="col-md-4 well" style="min-height: 200px;">
+
+      <h2><%= c.name %></h2>
+      <% c.sections.each do |s| %>
+        <h3> <%= s.name %> </h3>
+
+        <ul>
+        <% s.lessons.each do |l| %>
+            <li><%= link_to l.name, chapter_section_lesson_path(c, s, l) %></li>
+        <% end %>
+        </ul>
+        <%= link_to 'Add Lesson', new_chapter_section_lesson_path(c, s) %>
+      <% end %>
+      <%= link_to 'Add Section', new_chapter_section_path(c) %>
+
+    </div>
+    <% end %>
+</div>
+
+
+
+<br><br>
+<%= link_to "New Chapter", new_chapter_path %>

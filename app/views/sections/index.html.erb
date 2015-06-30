@@ -1,7 +1,18 @@
-<% @sections.each do |s| %>
+<div class="row">
+    <% @sections.each do |s| %>
 
-<%= link_to s.name, section_path(s) %>
+    <div class="col-md-4">
+      <h2><%= s.name %></h2>
+      <ul>
+        <% s.lessons.each do |l| %>
+          <li><%= link_to l.name, section_lesson_path(s, l) %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+</div>
 
-<% end %>
 
-<%= link_to "New Section", new_section_path %>
+
+<br><br>
+<%= link_to "New Section", new_chapter_section_path(@chapter) %>

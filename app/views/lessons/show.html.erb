@@ -4,5 +4,5 @@
 <br>
 <%= @lesson.number %>
 
-<%= link_to "Next", section_lesson_path(@section, @lesson.next) %>
-<%= link_to "Previous", section_lesson_path(@section, @lesson.prev) %>
+<%= link_to "Next", chapter_section_lesson_path(@chapter, @section, @lesson.next) %>
+<%= link_to "Previous", chapter_section_lesson_path(@chapter, @section, @lesson.prev) %>
