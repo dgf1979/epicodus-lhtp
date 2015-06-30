@@ -1,3 +1,5 @@
-<%= render 'layouts/errors', :object => @lesson %> 
+<% content_for(:title, 'Add New Lesson') %>
+
+<%= render 'layouts/errors', :object => @lesson %>
 
 <%= render 'form' %>

@@ -10,7 +10,9 @@ class LessonsController < ApplicationController
   end
 
   def create
-    @section = Section.find(params[:section_id])
+    @chapter = Chapter.find(params[:chapter_id])
+    @section = @chapter.sections.find(params[:section_id])
+    # @section = Section.find(params[:section_id])
     @lesson = @section.lessons.new(lesson_params)
     if @lesson.save
       flash[:notice] = "Lesson Added"
