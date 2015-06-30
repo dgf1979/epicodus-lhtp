@@ -8,6 +8,7 @@ describe "adding lessons" do
     click_on 'New Lesson'
     fill_in 'Name', :with => 'Ruby'
     fill_in 'Text', :with => 'lorem ipsum'
+    fill_in 'Number', :with => '1'
     click_on 'Create Lesson'
     expect(page).to have_content 'Ruby'
   end

@@ -1,0 +1,8 @@
+<%= @lesson.name %>
+<br>
+<%= @lesson.text %>
+<br>
+<%= @lesson.number %>
+
+<%= link_to "Next", section_lesson_path(@section, @lesson.next) %>
+<%= link_to "Previous", section_lesson_path(@section, @lesson.prev) %>

@@ -19,9 +19,14 @@ class LessonsController < ApplicationController
     end
   end
 
+  def show
+    @section = Section.find(params[:section_id])
+    @lesson = Lesson.find(params[:id])
+  end
+
   private
   def lesson_params
-    params.require(:lesson).permit(:name, :text)
+    params.require(:lesson).permit(:name, :text, :number)
   end
 
 end
