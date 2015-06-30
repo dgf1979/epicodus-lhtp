@@ -10,9 +10,9 @@ describe "adding lessons" do
     expect(page).to have_content 'Ruby'
   end
 
-  # it "gives error when no name is entered" do
-  #   visit new_lesson_path
-  #   click_on 'Create Lesson'
-  #   expect(page).to have_content 'errors'
-  # end
+  it "gives error when no name is entered" do
+    visit new_lesson_path
+    click_on 'Create Lesson'
+    expect(page).to have_content 'errors'
+  end
 end
