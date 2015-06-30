@@ -1,4 +1,5 @@
 class Lesson < ActiveRecord::Base
+  default_scope { order('number ASC') }
   belongs_to :section
   validates :name, :presence => true
   validates :text, :presence => true
